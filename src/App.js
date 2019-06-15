@@ -19,8 +19,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App" style={{
-                width: '90vw',
-                height: '90vw',
+                width: '45vw',
+                height: '45vw',
                 marginLeft: 'auto',
                 marginRight: 'auto'
             }}>

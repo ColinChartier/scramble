@@ -1,0 +1,11 @@
+@value tileSize: 20px;
+.tile {
+    border: 2px solid white;
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(148,113,83,1);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(148,113,83,1);
+    box-shadow: inset 0px 0px 5px 0px rgba(148,113,83,1);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

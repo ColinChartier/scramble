@@ -1,13 +1,15 @@
 import React from 'react';
-import BoardState from '../game-logic/BoardState'
+import BoardState from '../game-logic/BoardState';
+import TileStyles from './Tile.module.css';
 
 class Tile extends React.Component {
     render() {
         return (
-            <div style={{
-                flexGrow: 1,
-                backgroundColor: this.props.type.color,
-                boxSizing: 'border-box',
+            <div className={TileStyles.tile}
+                style={{
+                    flexGrow: 1,
+                    backgroundColor: this.props.type.color,
+                    boxSizing: 'border-box',
             }}>
                 {this.props.letter.char}
             </div>
@@ -48,7 +50,6 @@ class Board extends React.Component {
                 flexDirection: 'column',
                 width: '100%',
                 height: '100%',
-                fontSize: '500%'
             }}>
                 {Array(this.state.boardState.height).fill(true).map((_, i) => this.tileRow(i))}
             </div>
