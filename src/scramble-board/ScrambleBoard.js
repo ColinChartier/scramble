@@ -1,19 +1,6 @@
 import React from 'react';
 import BoardState from '../game-logic/BoardState'
-
-class Tile extends React.Component {
-    render() {
-        return (
-            <div style={{
-                flexGrow: 1,
-                backgroundColor: this.props.type.color,
-                boxSizing: 'border-box',
-            }}>
-                {this.props.letter.char}
-            </div>
-        )
-    }
-}
+import Tile from './Tile'
 
 class Board extends React.Component {
     constructor(props) {
@@ -29,12 +16,13 @@ class Board extends React.Component {
                 display: 'flex',
                 flexDirection: 'row',
                 flexGrow: '1',
-            }}>
+            }} key={column}>
                 {Array(this.state.boardState.width).fill(true)
                     .map((_, i) => (
                         <Tile
                             letter={this.state.boardState.letter(i, column)}
                             type={this.state.boardState.tileType(i, column)}
+                            key={i}
                         />
                     ))}
             </div>
