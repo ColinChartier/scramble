@@ -1,16 +1,15 @@
 import React from 'react';
-import { TILE_TYPES } from '../game-logic/TileTypes';
+import BoardState from '../game-logic/BoardState'
 
 class Tile extends React.Component {
     render() {
         return (
             <div style={{
                 flexGrow: 1,
-                backgroundColor: TILE_TYPES[this.props.type
-                                            || 'STANDARD'].color,
+                backgroundColor: this.props.type.color,
                 boxSizing: 'border-box',
             }}>
-                {this.props.letter.toUpperCase()}
+                {this.props.letter.char}
             </div>
         )
     }
@@ -19,8 +18,9 @@ class Tile extends React.Component {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.width = props.width || 15;
-        this.height = props.height || 15;
+        this.state = {
+            boardState: new BoardState()
+        }
     }
 
     tileRow(column) {
@@ -30,14 +30,11 @@ class Board extends React.Component {
                 flexDirection: 'row',
                 flexGrow: '1',
             }}>
-                {Array(this.width).fill(true)
+                {Array(this.state.boardState.width).fill(true)
                     .map((_, i) => (
                         <Tile
-                            x={i}
-                            y={column}
-                            letter={'a'}
-                            type={column === 0 && i === 0 ? 'TRIPLE_WORD_SCORE'
-                                                          : 'STANDARD'}
+                            letter={this.state.boardState.letter(i, column)}
+                            type={this.state.boardState.tileType(i, column)}
                         />
                     ))}
             </div>
@@ -53,7 +50,7 @@ class Board extends React.Component {
                 height: '100%',
                 fontSize: '500%'
             }}>
-                {Array(this.height).fill(true).map((_, i) => this.tileRow(i))}
+                {Array(this.state.boardState.height).fill(true).map((_, i) => this.tileRow(i))}
             </div>
         )
     }

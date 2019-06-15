@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TILE_TYPES = {
     'TRIPLE_WORD_SCORE': {
         color: 'red',
