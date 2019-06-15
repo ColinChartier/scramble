@@ -1,42 +1,20 @@
 import React from 'react';
-import BoardState from '../game-logic/BoardState';
-import TileStyles from './Tile.module.css';
-
-class Tile extends React.Component {
-    render() {
-        return (
-            <div className={TileStyles.tile}
-                style={{
-                    flexGrow: 1,
-                    backgroundColor: this.props.type.color,
-                    boxSizing: 'border-box',
-            }}>
-                {this.props.letter.char}
-            </div>
-        )
-    }
-}
+import Tile from './Tile'
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            boardState: new BoardState()
-        }
-    }
-
     tileRow(column) {
         return (
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
                 flexGrow: '1',
-            }}>
-                {Array(this.state.boardState.width).fill(true)
+            }} key={column}>
+                {Array(this.props.state.width).fill(true)
                     .map((_, i) => (
                         <Tile
-                            letter={this.state.boardState.letter(i, column)}
-                            type={this.state.boardState.tileType(i, column)}
+                            letter={this.props.state.letter(i, column)}
+                            type={this.props.state.tileType(i, column)}
+                            key={i}
                         />
                     ))}
             </div>
@@ -51,7 +29,7 @@ class Board extends React.Component {
                 width: '100%',
                 height: '100%',
             }}>
-                {Array(this.state.boardState.height).fill(true).map((_, i) => this.tileRow(i))}
+                {Array(this.props.state.height).fill(true).map((_, i) => this.tileRow(i))}
             </div>
         )
     }
