@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {ScrabbleBoard} from './scrabble-board'
+import {Board} from './scramble-board'
 
 function App() {
   return (
-    <div className="App">
-      <ScrabbleBoard/>
+    <div className="App" style={{width: '90vw', height: '90vw', marginLeft: 'auto', marginRight: 'auto'}}>
+      <Board/>
     </div>
   );
 }

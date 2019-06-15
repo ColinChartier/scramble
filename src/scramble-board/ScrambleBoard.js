@@ -1,17 +1,17 @@
 import React from 'react';
 
-class ScrabbleTile extends React.Component {
+class Tile extends React.Component {
     render() {
         return (
             <div style={{margin: 'auto auto auto auto'}}>
-                {this.props.x}, {this.props.y}
+                {this.props.letter.toUpperCase()}
             </div>
         )
     }
 }
 
 
-class ScrabbleBoard extends React.Component {
+class Board extends React.Component {
     constructor(props) {
         super(props);
         this.width = props.width || 11;
@@ -21,18 +21,18 @@ class ScrabbleBoard extends React.Component {
     tileRow(column) {
         return (
             <div style={{display: 'flex', flexDirection: 'row', marginTop: 'auto', marginBottom: 'auto'}}>
-                {Array(this.width).fill(true).map((_, i) => <ScrabbleTile x={i} y={column}/>)}
+                {Array(this.width).fill(true).map((_, i) => <Tile x={i} y={column} letter={'a'}/>)}
             </div>
         )
     }
 
     render() {
         return (
-            <div style={{display: 'flex', flexDirection: 'column', width: '100vw', height: '100vw'}}>
+            <div style={{display: 'flex', flexDirection: 'column', width: '100%', height: '100%', fontSize: '500%'}}>
                 {Array(this.height).fill(true).map((_, i) => this.tileRow(i))}
             </div>
         )
     }
 }
 
-export {ScrabbleBoard};
+export {Board};
