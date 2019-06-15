@@ -1,4 +1,4 @@
-const LETTER_SCORES = {
+export const LETTER_SCORES = {
     'a': 1,
     'b': 3,
     'c': 3,

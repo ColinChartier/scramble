@@ -1,6 +1,11 @@
 import {TILE_TYPES} from "./TileTypes";
+import {LETTER_SCORES} from "./LetterScores";
 
 export default class BoardState {
+    constructor() {
+        this.board = Array(this.height).fill(0).map(x => Array(this.width).fill('A'))
+    }
+
     get width() {
         return 15
     }
@@ -11,7 +16,8 @@ export default class BoardState {
 
     letter(i, j) {
         //points is the point display of the letter, wildcards should have points: 0, for example
-        return {'char': 'A', 'points': 1}
+        console.log(this.board[j][i])
+        return {'char': this.board[j][i], 'points': LETTER_SCORES[this.board[j][i].toLowerCase()]}
     }
 
     tileType(i, j) {
