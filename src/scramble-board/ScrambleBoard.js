@@ -14,8 +14,8 @@ class Tile extends React.Component {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.width = props.width || 11;
-        this.height = props.height || 11;
+        this.width = props.width || 15;
+        this.height = props.height || 15;
     }
 
     tileRow(column) {
