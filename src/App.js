@@ -11,11 +11,12 @@ class App extends React.Component {
     render() {
         return (
             <div className="App" style={{
-                width: '45vw',
-                height: '45vw',
+                width: '100%',
+                height: '100%',
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 display: 'flex',
+                alignItems: 'center',
                 flexDirection: 'column',
             }}>
                 <Board state={new BoardState()}/>

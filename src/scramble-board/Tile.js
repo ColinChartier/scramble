@@ -9,7 +9,7 @@ export default function (props) {
                 backgroundColor: props.type && props.type.color || 'beige',
                 boxSizing: 'border-box',
             }}>
-            {props.letter.char}
+            {props.letter ? props.letter.char : props.type.userFacing}
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import Tile from './Tile';
 import React from 'react';
-
 export default class UserTilesView extends React.Component {
     render() {
         return (

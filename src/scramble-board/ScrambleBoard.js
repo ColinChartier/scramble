@@ -12,7 +12,7 @@ class Board extends React.Component {
                 {Array(this.props.state.width).fill(true)
                     .map((_, i) => (
                         <Tile
-                            letter={this.props.state.letter(i, column)}
+                            // letter={this.props.state.letter(i, column)}
                             type={this.props.state.tileType(i, column)}
                             key={i}
                         />
@@ -28,6 +28,7 @@ class Board extends React.Component {
                 flexDirection: 'column',
                 width: '100%',
                 height: '100%',
+                alignItems: 'center'
             }}>
                 {Array(this.props.state.height).fill(true).map((_, i) => this.tileRow(i))}
             </div>
