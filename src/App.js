@@ -8,6 +8,11 @@ class App extends React.Component {
         super(props);
     }
 
+    generateLetter() {
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        return alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    }
+
     render() {
         return (
             <div className="App" style={{
@@ -20,7 +25,7 @@ class App extends React.Component {
                 flexDirection: 'column',
             }}>
                 <Board state={new BoardState()}/>
-                <UserTilesView tiles={['W', 'E', 'E', 'D', 'M', 'A', 'N']}/>
+                <UserTilesView tiles={Array(7).fill("").map(() => this.generateLetter())}/>
             </div>
         );
     }
